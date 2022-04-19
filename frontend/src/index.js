@@ -4,11 +4,12 @@ import "react-app-polyfill/ie11";
 import ReactDOM from "react-dom";
 import React from "react";
 import * as serviceWorker from "./serviceWorker";
+import App from './App';
 
-const MyWelcome = () => "Welcome to Inceptia ReactJS Challenge!";
+
 
 ReactDOM.render(
-  <MyWelcome/>,
+    <App />,
   document.getElementById("root")
 );
 
