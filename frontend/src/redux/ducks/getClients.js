@@ -1,0 +1,62 @@
+import axios from 'axios'
+
+
+// CONSTANTS
+const initialState = {
+    loadingClientes: true,
+    clientes: [],
+    errorClientes: null
+}
+
+
+const CLIENTES_REQUEST = 'clientes/request'
+const CLIENTES_SUCCESS = 'clientes/success'
+const CLIENTES_FAIL = 'clientes/fail'
+
+
+
+// REDUCERS
+export default function ClientesReducer(state = initialState, action) {
+    switch (action.type) {
+
+        case CLIENTES_REQUEST:
+            return { ...state, loadingClientes: true }
+
+        case CLIENTES_SUCCESS:
+            return { ...state, loadingClientes: false, clientes: action.payload }
+
+        case CLIENTES_FAIL:
+            return { ...state, loadingClientes: false, errorClientes: action.payload }
+
+        default:
+            return state
+    }
+}
+
+
+
+// ACTIONS
+export const getClientes = () => async (dispatch) => {
+    try {
+
+        dispatch({ type: CLIENTES_REQUEST })
+
+        const { data } = await axios({
+            method: 'GET',
+            url: 'https://admindev.inceptia.ai/api/v1/clients/',
+            headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') },
+        })
+
+        dispatch({ type: CLIENTES_SUCCESS, payload: data })
+
+    } catch (err) {
+        dispatch({
+            type: CLIENTES_FAIL,
+            payload: err.response
+                && err.response.data.detail
+                ? err.response.data.detail
+                : err.message
+        })
+    }
+
+}
