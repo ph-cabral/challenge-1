@@ -113,7 +113,7 @@ const GlobalStyle = createGlobalStyle`
         }
 
        
-        a{
+        span{
             width: 100%;
             color: #f0b01c;
             position: relative;
@@ -133,6 +133,10 @@ const GlobalStyle = createGlobalStyle`
             span{
                 left: 15px;
                 color: black;
+
+                @media (max-width: 800px){
+                    
+                }
             }
             ::before{
                 content: '';
@@ -140,6 +144,10 @@ const GlobalStyle = createGlobalStyle`
                 width: 100%;
                 height: 100%;
                 background: #f0b01c;
+
+                @media (max-width: 800px){
+                    left: 0
+                }
             }
     }
 
