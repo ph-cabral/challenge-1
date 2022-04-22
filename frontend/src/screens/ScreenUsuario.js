@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom';
 import { getClientes } from '../redux/ducks/getClients';
 import { getCasos, filterCasos, editarFechas } from '../redux/ducks/getCasos';
 import { ContainerUser, Body } from '../styles/styleComponents';
@@ -12,7 +13,9 @@ import Message from '../components/Message';
 
 export default function ScreenUsuario() {
 
+    const navigate = useNavigate()
     const dispatch = useDispatch()
+
     const [state, setState] = useState({ selected: null })
 
 
@@ -23,8 +26,13 @@ export default function ScreenUsuario() {
 
     useEffect(() => {
 
-        dispatch(getClientes())
+        if (localStorage.getItem('token') === null) {
+            navigate('/')
+        }
 
+
+        dispatch(getClientes())
+        
     }, [])
 
     const handleChildClick = id => {
@@ -37,7 +45,7 @@ export default function ScreenUsuario() {
 
 
     return (
-        <div style={{ height: '100vh', width: '100vw'}}>
+        <div style={{ height: '100vh', width: '100vw' }}>
             {
                 loading
                     ? < Loader />
