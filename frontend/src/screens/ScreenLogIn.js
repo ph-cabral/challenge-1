@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Form, Button } from 'react-bootstrap'
 import { getToken } from '../redux/ducks/logIn';
@@ -22,7 +22,6 @@ export default function ScreenLogIn() {
         'password': "4eSBbHqiCTPdBCTj",
     })
 
-
     const changeHandle = ({ target }) => {
         setUsuario({
             ...usuario,
@@ -35,14 +34,19 @@ export default function ScreenLogIn() {
             navigate('/DatesUsers')
         }
     }
+
     const Submit = (e) => {
         e.preventDefault()
         dispatch(getToken(usuario))
         setTimeout(dir, 1000)
-
-
-
     }
+
+    useEffect(() => {
+        if (localStorage.getItem('token') !== null) {
+            navigate('/DatesUsers')
+        }
+    }, [])
+
 
 
     return (
@@ -56,7 +60,6 @@ export default function ScreenLogIn() {
                             : errorLogIn
                         }
                     </Message>
-
                     : null
             }
             <div>
