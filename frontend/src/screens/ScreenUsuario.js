@@ -25,11 +25,14 @@ export default function ScreenUsuario() {
 
     useEffect(() => {
 
-        if (localStorage.getItem('token') === null){ 
+        if (localStorage.getItem('token') === null) {
             navigate('/')
         }
-        
-        setTimeout( dispatch(getClientes()), 2000)
+
+        if (clientes === null) {
+            dispatch(getClientes())
+        }
+
 
     }, [])
 
