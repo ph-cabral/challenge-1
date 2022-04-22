@@ -29,10 +29,6 @@ export default function ScreenLogIn() {
         })
     }
 
-    const dir = () => {
-            navigate('/DatesUsers')
-         setTimeout(dir, 1000)
-    }
 
     const Submit = (e) => {
         e.preventDefault()
