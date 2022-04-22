@@ -29,16 +29,11 @@ export default function ScreenLogIn() {
         })
     }
 
-    const dir = () => {
-        if (localStorage.getItem('token') !== null) {
-            navigate('/DatesUsers')
-        }
-    }
 
     const Submit = (e) => {
         e.preventDefault()
         dispatch(getToken(usuario))
-        setTimeout(dir, 1000)
+        navigate('/DatesUsers')
     }
 
     useEffect(() => {
