@@ -25,12 +25,13 @@ export default function ScreenUsuario() {
 
     useEffect(() => {
 
-        if (localStorage.getItem('token') === null) {
-            setTimeout(navigate('/'), 1000)
-            }
-        dispatch(getClientes())
-     }, [])
-    
+        if (localStorage.getItem('token') === null){ 
+            navigate('/')
+        }
+        
+        setTimeout( dispatch(getClientes()), 2000)
+
+    }, [])
 
     const handleChildClick = id => {
         setState(id)

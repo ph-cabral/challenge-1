@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Form, Button } from 'react-bootstrap'
 import { getToken } from '../redux/ducks/logIn';
+import { getClientes } from '../redux/ducks/getClients';
 import logo from '../assets/logo.jpg'
 import { ContainerLogIn, FormContainer, Label, Input } from '../styles/styleComponents'
 import { useNavigate } from 'react-router-dom';
@@ -14,7 +15,7 @@ export default function ScreenLogIn() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const { errorLogIn } = useSelector(state => state.logIn)
+    const { token, errorLogIn } = useSelector(state => state.logIn)
 
 
     const [usuario, setUsuario] = useState({
@@ -33,14 +34,17 @@ export default function ScreenLogIn() {
     const Submit = (e) => {
         e.preventDefault()
         dispatch(getToken(usuario))
-        navigate('/DatesUsers')
+        // setTimeout(navigate('/DatesUsers'), 2000)
     }
 
     useEffect(() => {
+        
+
         if (localStorage.getItem('token') !== null) {
+            dispatch(getClientes(token))
             navigate('/DatesUsers')
         }
-    }, [])
+    }, [token])
 
 
 

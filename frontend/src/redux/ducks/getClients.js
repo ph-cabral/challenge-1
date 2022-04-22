@@ -37,26 +37,23 @@ export default function ClientesReducer(state = initialState, action) {
 
 // ACTIONS
 export const getClientes = () => async (dispatch) => {
-    try {
 
-        dispatch({ type: CLIENTES_REQUEST })
+    dispatch({ type: CLIENTES_REQUEST })
 
-        const { data } = await axios({
-            method: 'GET',
-            url: 'https://admindev.inceptia.ai/api/v1/clients/',
-            headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') },
-        })
-
-        dispatch({ type: CLIENTES_SUCCESS, payload: data })
-
-    } catch (err) {
-        dispatch({
+    await axios({
+        method: 'GET',
+        url: 'https://admindev.inceptia.ai/api/v1/clients/',
+        headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') },
+    }).then(
+        ({ data }) => {
+            dispatch({ type: CLIENTES_SUCCESS, payload: data })
+        },
+        err => dispatch({
             type: CLIENTES_FAIL,
             payload: err.response
                 && err.response.data.detail
                 ? err.response.data.detail
                 : err.message
         })
-    }
-
+    )
 }

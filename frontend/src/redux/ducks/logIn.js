@@ -44,8 +44,8 @@ export const getToken = (usuario) => async (dispatch) => {
         data: usuario
     }).then(
         ({ data }) => {
-            dispatch({ type: LOGIN_SUCCESS })
             localStorage.setItem('token', data.token)
+            dispatch({ type: LOGIN_SUCCESS, payload: data.token })
         },
         err => dispatch({
             type: LOGIN_FAIL,
