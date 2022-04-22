@@ -30,9 +30,7 @@ export default function ScreenLogIn() {
     }
 
     const dir = () => {
-        if (localStorage.getItem('token') !== null) {
             navigate('/DatesUsers')
-        }
     }
 
     const Submit = (e) => {
