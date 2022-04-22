@@ -19,7 +19,6 @@ export default function ScreenUsuario() {
     const [state, setState] = useState({ selected: null })
 
 
-
     const { loading, clientes, loadingClientes } = useSelector(state => state.clientes)
     const { casos, startDate, endDate, loadingCasos, errorCasos } = useSelector(state => state.casos)
 
@@ -27,21 +26,17 @@ export default function ScreenUsuario() {
     useEffect(() => {
 
         if (localStorage.getItem('token') === null) {
-            navigate('/')
+            setTimeout(navigate('/'), 1000)
         }
 
-
         dispatch(getClientes())
-        
+
     }, [])
 
     const handleChildClick = id => {
         setState(id)
         dispatch(getCasos(id))
     }
-
-
-
 
 
     return (

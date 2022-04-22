@@ -9,16 +9,15 @@ const initialState = {
 }
 
 
-const LOGIN_REQUEST = 'proveedor/request'
-const LOGIN_SUCCESS = 'proveedor/success'
-const LOGIN_FAIL = 'proveedor/fail'
+const LOGIN_REQUEST = 'login/request'
+const LOGIN_SUCCESS = 'login/success'
+const LOGIN_FAIL = 'login/fail'
 
 
 // REDUCERS
 export default function LoginReducer(state = initialState, action) {
     switch (action.type) {
 
-        // proveedorListReducer
         case LOGIN_REQUEST:
             return { loading: true, token: [] }
 
