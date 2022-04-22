@@ -23,11 +23,11 @@ export default function ScreenUsuario() {
     const { loading, clientes, loadingClientes } = useSelector(state => state.clientes)
     const { casos, startDate, endDate, loadingCasos, errorCasos } = useSelector(state => state.casos)
 
-
-    useEffect(() => {
-
-        if (localStorage.getItem('token') === null) {
+    const redir = if (localStorage.getItem('token') === null) {
             navigate('/')
+        
+    useEffect(() => {
+        setTimeout(redir, 1000)
         }
 
 
