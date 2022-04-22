@@ -19,7 +19,7 @@ export default function DataTable({ casos, loadingCasos }) {
                     : loadingCasos
                         ? <Loader />
                         :
-                        <TABLE striped hover
+                        <TABLE striped hover responsive='xl'
                         >
                             <Thead>
                                 <tr>

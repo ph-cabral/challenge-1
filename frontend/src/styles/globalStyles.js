@@ -7,13 +7,11 @@ const GlobalStyle = createGlobalStyle`
 
     &.react-datepicker__input-container{
         display: flex;
-        z-index: -1;
     }
 
     &.react-datepicker-wrapper{
         width: 300px !important;
         height: 50px;
-        transform: rotate(360deg)
         margin-top: 10px
 
 

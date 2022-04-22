@@ -25,7 +25,7 @@ export default function FilterData({ dispatch, accionFecha, accionGet, estadoUno
         <ContainerCalendar>
             <i
             style={{color: 'white'}}
-                class="fa-solid fa-bars"
+                className="fa-solid fa-bars"
                 onClick={toggleTheme}></i>
             <Calendar
                 selectsRange={true}

@@ -170,6 +170,7 @@ export const ContainerSideNav = styled.div`
     backdrop-filter: blur(5px);
     display: flex;
     align-items: center;
+    z-index: 100;
 
     h3{
         margin: auto;
