@@ -11,17 +11,21 @@ import { Provider } from 'react-redux';
 import generateStore from './redux/store';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GlobalStyle from "./styles/globalStyles";
+import { ThemeContextProvider } from './context/moveContext'
+
 
 ReactDOM.render(
   <Provider store={generateStore()}>
-    <GlobalStyle />
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<ScreenLogIn />} />
-        <Route path="/DatesUsers" element={<ScreenUsuario />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
-    </BrowserRouter>
+    <ThemeContextProvider>
+      <GlobalStyle />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<ScreenLogIn />} />
+          <Route path="/DatesUsers" element={<ScreenUsuario />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeContextProvider>
   </Provider >,
   document.getElementById("root")
 );

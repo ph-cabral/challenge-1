@@ -3,6 +3,8 @@ import { Alert, Table, Form, Button, Image } from 'react-bootstrap'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
+
+
 ///### Log In ###///
 
 export const ContainerLogIn = styled.div`
@@ -16,11 +18,11 @@ export const ContainerLogIn = styled.div`
 `
 
 export const FormContainer = styled.div`
-min-width: 200px
+    min-width: 200px
 `
 
 export const Label = styled(Form.Label)`
-color:white
+    color:white
 `
 
 export const Input = styled(Form.Control)`
@@ -42,12 +44,9 @@ export const Input = styled(Form.Control)`
         }
 
     ::placeholder{
-    // aling-text: center;
     font-size: 1em;
     font-style: italic;
-    // color: orange;
     text-align: center;
-    // text-shadow: 1px 3px white
     }
 `
 
@@ -79,20 +78,43 @@ export const ContainerCalendar = styled.div`
     height: 150px;
     max-width: 600px;
 
-        @media (max-width >= 768px) {
+        i{
+            display: none;
+        }
+
+        @media (max-width: 800px){
+            display: flex;
             flex-direction: column;
-            flex-wrap: wrap; 
+            padding: auto;
+            justify-content: space-evenly
+            
+            input{
+                position: relative;
+                z-index: -1
+            }
+
+            div {
+                margin: auto
+
+            }
+     
+            i{
+                display: block;
+                margin: auto;
+                margin-bottom: 5px
+        }
+            button{
+                margin: auto
+            }
         }
 
         div{
             background:none;
                 color:#f0b01c;
                 font-weight: 20px;
-                margin-top: -30px
+                margin-top: -25px
                 
                 &:nth-child(2) {
-                    // height:auto;
-
                     margin-top: -150px
                   }
             }
@@ -110,8 +132,7 @@ export const Calendar = styled(DatePicker)`
     border-radius: 3px;
     cursor: pointer;
     margin: auto;
-    position: relative;
-    z-index: 9;
+
    
 
         &:hover{
@@ -130,6 +151,12 @@ export const Calendar = styled(DatePicker)`
                 color: black
             }        
 
+        @media (max-width: 800px){
+            margin auto !important;
+
+        }
+
+
 `
 
 
@@ -142,9 +169,28 @@ export const ContainerSideNav = styled.div`
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(5px);
     display: flex;
-    // flex-direction: column;
-    // justify-content: center;
     align-items: center;
+
+    h3{
+        margin: auto;
+    }
+ 
+        i{
+            display:none
+        }
+            @media (max-width: 800px){
+                position: fixed;
+                background: rgba(255, 255, 255, .9);
+                width: 100vw;
+                transition: transform 0.5s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+                transform: ${({ theme }) => theme.move};
+            
+
+                    i{
+                        display: block;
+                        }    
+                    
+            }
 `
 
 export const SideNav = styled.div`
@@ -153,6 +199,12 @@ export const SideNav = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media (max-width: 800px){
+        text-align: center;
+        transform: rotate(360deg);
+        z-index: -1;
+    }
 `
 
 
@@ -197,9 +249,9 @@ export const TABLE = styled(Table)`
 
 export const Thead = styled.thead`
     background: #f0b01c;
-    position:sticky;
-    top: 0px;
-    z-index: 0;
+
+    @media (max-width: 800px){
+    }
 
 `
 

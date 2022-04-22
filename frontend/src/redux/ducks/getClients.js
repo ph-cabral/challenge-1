@@ -4,7 +4,7 @@ import axios from 'axios'
 // CONSTANTS
 const initialState = {
     loadingClientes: true,
-    clientes: [],
+    clientes: null,
     errorClientes: null
 }
 

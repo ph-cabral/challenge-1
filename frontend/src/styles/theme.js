@@ -1,6 +1,7 @@
-const messageOn = {
-    status: 'translateY(0%)'
+export const inside = {
+    move: 'translateX(0%)'
 }
-const messageOff = {
-    status:' translateY(-100%)'
+
+export const outside = {
+    move:' translateX(-100%)'
 }

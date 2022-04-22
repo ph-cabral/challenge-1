@@ -2,10 +2,12 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { ContainerCalendar, Calendar } from '../styles/styleComponents';
 import { useNavigate } from 'react-router-dom';
-
+import { useThemeContext } from '../context/moveContext';
 
 
 export default function FilterData({ dispatch, accionFecha, accionGet, estadoUno, estadoDos }) {
+
+    const { toggleTheme } = useThemeContext()
 
     const navigate = useNavigate()
 
@@ -18,8 +20,13 @@ export default function FilterData({ dispatch, accionFecha, accionGet, estadoUno
         navigate('/')
     }
 
+
     return (
         <ContainerCalendar>
+            <i
+            style={{color: 'white'}}
+                class="fa-solid fa-bars"
+                onClick={toggleTheme}></i>
             <Calendar
                 selectsRange={true}
                 startDate={estadoUno}
@@ -32,7 +39,7 @@ export default function FilterData({ dispatch, accionFecha, accionGet, estadoUno
                 placeholderText='Seleccionar fechas'
             />
             <Button
-                style={{ marginLeft: '15px', height: '40px', width: '200px' }}
+                style={{ height: '40px', width: '200px' }}
                 variant="outline-warning"
                 onClick={() => dispatch(accionGet())}
             >
@@ -40,7 +47,7 @@ export default function FilterData({ dispatch, accionFecha, accionGet, estadoUno
             </Button>
             <Button
                 variant="outline-danger"
-                style={{ marginLeft: '15px', height: '40px', width: '200px' }}
+                style={{ height: '40px', width: '200px' }}
                 onClick={logOut}
             >
                 Log Out

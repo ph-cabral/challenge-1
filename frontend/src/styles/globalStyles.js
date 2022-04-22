@@ -5,14 +5,26 @@ import background from '../assets/background.jpg'
 
 const GlobalStyle = createGlobalStyle`
 
+    &.react-datepicker__input-container{
+        display: flex;
+        z-index: -1;
+    }
+
     &.react-datepicker-wrapper{
         width: 300px !important;
         height: 50px;
         transform: rotate(360deg)
+        margin-top: 10px
+
+
+
+        @media (max-width: 800px){
+            z-index: auto;
+        }
     }
 
     &.react-datepicker{
-        background: rgba(255, 255, 255, 0.8) !important;
+        background: rgba(255, 255, 255, 1) !important;
         backdrop-filter: blur(10px) !important;
 
     }
@@ -20,6 +32,7 @@ const GlobalStyle = createGlobalStyle`
     &.react-datepicker__day{
         transition: transform .1s;
         -webkit-text-stroke: .5px black;
+
             &:hover{
                 transform: scale(1.5) !important;
                 background: black !important;
@@ -47,7 +60,12 @@ const GlobalStyle = createGlobalStyle`
     h3{
         margin: 10px auto ;
         color: white !important;
+
+        @media (max-width: 800px){
+            color: black !important
+        }
     }
+
 
   body {
     height: 100vh;
@@ -95,7 +113,7 @@ const GlobalStyle = createGlobalStyle`
         }
 
        
-        span{
+        a{
             width: 100%;
             color: #f0b01c;
             position: relative;
