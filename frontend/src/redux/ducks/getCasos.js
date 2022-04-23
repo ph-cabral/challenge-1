@@ -81,8 +81,7 @@ export const getCasos = (id) => async (dispatch) => {
                     && err.response.data.detail
                     ? err.response.data.detail
                     : err.message
-            })
-            console.log(err)}
+            })}
         )
 }
 

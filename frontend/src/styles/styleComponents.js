@@ -82,7 +82,7 @@ export const ContainerCalendar = styled.div`
             display: none;
         }
 
-        @media (max-width: 800px){
+        @media (max-width: 1000px){
             display: flex;
             flex-direction: column;
             padding: auto;
@@ -123,7 +123,7 @@ export const ContainerCalendar = styled.div`
 `
 
 export const Calendar = styled(DatePicker)`
-    background: none;
+    background: yellow;
     outline-style: none;
     border: 1px #f0b01c solid;
     height: 40px;
@@ -131,7 +131,6 @@ export const Calendar = styled(DatePicker)`
     font-weight: 15px;
     border-radius: 3px;
     cursor: pointer;
-    margin: auto;
 
    
 
@@ -151,7 +150,7 @@ export const Calendar = styled(DatePicker)`
                 color: black
             }        
 
-        @media (max-width: 800px){
+        @media (max-width: 1000px){
             margin auto !important;
 
         }
@@ -179,7 +178,7 @@ export const ContainerSideNav = styled.div`
         i{
             display:none
         }
-            @media (max-width: 800px){
+            @media (max-width: 1000px){
                 position: fixed;
                 background: rgba(255, 255, 255, .9);
                 width: 100vw;
@@ -201,7 +200,7 @@ export const SideNav = styled.div`
     flex-direction: column;
     justify-content: space-between;
 
-    @media (max-width: 800px){
+    @media (max-width: 1000px){
         text-align: center;
         transform: rotate(360deg);
         z-index: -1;
@@ -236,6 +235,7 @@ export const ContainerTable = styled.div`
     height: calc(100% - 150px);
     display:flex;
     align-item: center;
+    justify-content: center;
     overflow: scroll;
     
     overflow-x: auto;
@@ -251,7 +251,7 @@ export const TABLE = styled(Table)`
 export const Thead = styled.thead`
     background: #f0b01c;
 
-    @media (max-width: 800px){
+    @media (max-width: 1000px){
     }
 
 `

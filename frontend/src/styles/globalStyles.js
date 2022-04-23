@@ -10,19 +10,21 @@ const GlobalStyle = createGlobalStyle`
     }
 
     &.react-datepicker-wrapper{
-        width: 300px !important;
+        // width: 200px !important;
         height: 50px;
         margin-top: 10px
+        background: red
 
 
 
-        @media (max-width: 800px){
+
+        @media (max-width: 1000px){
             z-index: auto;
         }
     }
 
     &.react-datepicker{
-        background: rgba(255, 255, 255, 1) !important;
+        background: rgba(255, 255, 255, .9) !important;
         backdrop-filter: blur(10px) !important;
 
     }
@@ -58,8 +60,9 @@ const GlobalStyle = createGlobalStyle`
     h3{
         margin: 10px auto ;
         color: white !important;
+        text-align: center;
 
-        @media (max-width: 800px){
+        @media (max-width: 1000px){
             color: black !important
         }
     }
@@ -132,7 +135,7 @@ const GlobalStyle = createGlobalStyle`
                 left: 15px;
                 color: black;
 
-                @media (max-width: 800px){
+                @media (max-width: 1000px){
                     
                 }
             }
@@ -143,7 +146,7 @@ const GlobalStyle = createGlobalStyle`
                 height: 100%;
                 background: #f0b01c;
 
-                @media (max-width: 800px){
+                @media (max-width: 1000px){
                     left: 0
                 }
             }
